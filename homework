@@ -1,0 +1,138 @@
+package homework;
+
+import java.util.Arrays;
+
+public class Week3and4homework {
+
+    public static void main(String[] args) {
+        // Task 1
+        int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+        
+        
+        int result = ages[ages.length - 1] - ages[0];
+        System.out.println("a. Result: " + result);
+        
+        
+        ages = Arrays.copyOf(ages, ages.length + 1); // Increase array size
+        ages[ages.length - 1] = 42; // Add a new age
+        result = ages[ages.length - 1] - ages[0];
+        System.out.println("b. Result with added age: " + result);
+        
+        
+        int sum = 0;
+        for (int age : ages) {
+            sum += age;
+        }
+        double average = (double) sum / ages.length;
+        System.out.println("c. Average age: " + average);
+
+        
+        String[] names = {"Sam", "Tommy", "Tim", "Sally", "Buck", "Bob"};
+        
+        // a. Calculate the average number of letters per name
+        int totalLetters = 0;
+        for (String name : names) {
+            totalLetters += name.length();
+        }
+        double averageLetters = (double) totalLetters / names.length;
+        System.out.println("a. Average letters per name: " + averageLetters);
+        
+        // b. Concatenate all names separated by spaces
+        String concatenatedNames = String.join(" ", names);
+        System.out.println("b. Concatenated names: " + concatenatedNames);
+
+        // Task 3
+        // You access the last element of an array using the index: array[array.length - 1]
+
+        // Task 4
+        // You access the first element of an array using index 0: array[0]
+
+        // Task 5
+        int[] nameLengths = new int[names.length];
+        for (int i = 0; i < names.length; i++) {
+            nameLengths[i] = names[i].length();
+        }
+
+        // Task 6
+        int sumOfNameLengths = 0;
+        for (int length : nameLengths) {
+            sumOfNameLengths += length;
+        }
+        System.out.println("Sum of name lengths: " + sumOfNameLengths);
+
+        // Task 7
+        System.out.println("7. " + repeatWord("Hello", 3));
+
+        // Task 8
+        System.out.println("8. " + createFullName("John", "Doe"));
+
+        // Task 9
+        int[] testArray = {50, 30, 25, 10, 8};
+        System.out.println("9. " + isSumGreaterThan100(testArray));
+
+        // Task 10
+        double[] doubleArray = {1.5, 2.5, 3.5, 4.5, 5.5};
+        System.out.println("10. Average of doubleArray: " + calculateAverage(doubleArray));
+
+        // Task 11
+        double[] array1 = {2.5, 3.5, 4.5};
+        double[] array2 = {1.5, 5.5, 6.5};
+        System.out.println("11. " + isAverageGreaterThan(array1, array2));
+
+        // Task 12
+        System.out.println("12. Will buy a drink: " + willBuyDrink(true, 15.0));
+
+        // Task 13 (Custom method)
+        // This method checks if the number is even or odd.
+        //It was created to show the simple custom method.
+        int numberToCheck = 7;
+        System.out.println("13. Is " + numberToCheck + " even? " + isEven(numberToCheck));
+    }
+
+    // Task 7
+    public static String repeatWord(String word, int n) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            result.append(word);
+        }
+        return result.toString();
+    }
+
+    // Task 8
+    public static String createFullName(String firstName, String lastName) {
+        return firstName + " " + lastName;
+    }
+
+    // Task 9
+    public static boolean isSumGreaterThan100(int[] arr) {
+        int sum = 0;
+        for (int value : arr) {
+            sum += value;
+        }
+        return sum > 100;
+    }
+
+    // Task 10
+    public static double calculateAverage(double[] arr) {
+        double sum = 0;
+        for (double value : arr) {
+            sum += value;
+        }
+        return sum / arr.length;
+    }
+
+    // Task 11
+    public static boolean isAverageGreaterThan(double[] arr1, double[] arr2) {
+        return calculateAverage(arr1) > calculateAverage(arr2);
+    }
+
+    // Task 12
+    public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+        return isHotOutside && moneyInPocket > 10.50;
+    }
+
+    // Task 13 (Custom method)
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+}
